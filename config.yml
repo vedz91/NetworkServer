@@ -15,3 +15,5 @@ swagger:
   version: 1.0-SNAPSHOT
   description:
   contact: vedang91@gmail.com
+dealServerConfiguration:
+  url: http://localhost:9000
