@@ -14,23 +14,22 @@ To see your applications health enter url `http://localhost:8081/healthcheck`
 
 
 ## To Do
-- [ ] Create a Static Endpoint
-- [ ] Setup a Config File
-- [ ] Environment based Configuration
-- [ ] Integrate Swagger
-- [ ] Configure jUnit
-- [ ] Dependency Injection
-- [ ] Mock DI
-- [ ] Setup CI
-- [ ] Setup Authentication
+- [x] Create a Static Endpoint
+- [x] Setup a Config File
+- [x] Integrate Swagger
+- [x] Configure jUnit
+- [x] Integrate Lombok
 - [ ] Integrate a downward dependency using Retrofit or other
 - [ ] Create a dynamic endpoint
-- [ ] Mock service calls  
+- [ ] Mock service calls
+- [ ] Setup CI
+- [ ] Setup Authentication
+  
 
 ## Nice To Have
 - [ ] Enable PMD
 - [ ] Enable Bugzilla
-- [ ] Setup PSQL via docker
-- [ ] Create an annotation 
-
+- [ ] Create an annotation
+- [ ] Dependency Injection 
+- [ ] Mock DI
 

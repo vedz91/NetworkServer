@@ -1,8 +1,13 @@
 package org.ServerInteractionDemo;
 
+import org.ServerInteractionDemo.health.ConfigurationHealthCheck;
+import org.ServerInteractionDemo.resources.StaticResource;
+
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.federecio.dropwizard.swagger.SwaggerBundle;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 
 public class NetworkServerApplication extends Application<NetworkServerConfiguration> {
 
@@ -18,12 +23,24 @@ public class NetworkServerApplication extends Application<NetworkServerConfigura
     @Override
     public void initialize(final Bootstrap<NetworkServerConfiguration> bootstrap) {
         // TODO: application initialization
+        bootstrap.addBundle(new SwaggerBundle<NetworkServerConfiguration>() {
+            @Override
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(final NetworkServerConfiguration configuration) {
+                return configuration.swaggerBundleConfiguration;
+            }
+        });
     }
 
     @Override
     public void run(final NetworkServerConfiguration configuration,
-                    final Environment environment) {
-        // TODO: implement application
+                    final Environment env) {
+        // HEALTH Check
+        env.healthChecks()
+           .register("ConfigurationHealthCheck",
+                     ConfigurationHealthCheck.builder().serverConfiguration(new Object()).build());
+
+        // RESOURCES
+        env.jersey().register(StaticResource.class);
     }
 
 }
