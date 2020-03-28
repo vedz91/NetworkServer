@@ -19,10 +19,11 @@ To see your applications health enter url `http://localhost:8081/healthcheck`
 - [x] Integrate Swagger
 - [x] Configure jUnit
 - [x] Integrate Lombok
-- [ ] Integrate a downward dependency using Retrofit or other
-- [ ] Create a dynamic endpoint
+- [x] Integrate a downward dependency using Retrofit or other
+- [x] Create a dynamic endpoint
 - [ ] Mock service calls
-- [ ] Setup CI
+- [x] Setup CI
+- [x] Dockerize App
 - [ ] Setup Authentication
   
 
