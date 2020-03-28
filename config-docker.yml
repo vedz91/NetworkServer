@@ -16,4 +16,4 @@ swagger:
   description:
   contact: vedang91@gmail.com
 dealServerConfiguration:
-  url: http://docker-network
+  url: http://data:9000

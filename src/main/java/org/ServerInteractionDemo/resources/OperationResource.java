@@ -4,6 +4,8 @@ import org.ServerInteractionDemo.api.OperationResponse;
 import org.ServerInteractionDemo.client.DataServiceClient;
 import org.ServerInteractionDemo.core.OperationType;
 import org.ServerInteractionDemo.literal.SwaggerLiterals;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,6 +31,8 @@ import retrofit2.Response;
 @Builder
 public class OperationResource {
 
+    final static Logger LOGGER = LoggerFactory.getLogger(OperationResource.class);
+
     DataServiceClient dataServiceClient;
 
     @GET
@@ -48,6 +52,7 @@ public class OperationResource {
         Call<OperationResponse> serviceCall = this.dataServiceClient.calculate(queryparam);
         OperationResponse operationResponse = null;
         try {
+            LOGGER.info("[Request] Calling: " + serviceCall.request().url().toString());
             Response<OperationResponse> response = serviceCall.execute();
             operationResponse = response.body();
         }
