@@ -1,10 +1,11 @@
 package org.ServerInteractionDemo;
 
+import org.ServerInteractionDemo.api.exception.mapper.DataServiceExceptionMapper;
+import org.ServerInteractionDemo.api.exception.mapper.InvalidOperandExceptionMapper;
 import org.ServerInteractionDemo.client.DataServiceClient;
 import org.ServerInteractionDemo.core.retrofit.RetrofitClient;
 import org.ServerInteractionDemo.health.ConfigurationHealthCheck;
 import org.ServerInteractionDemo.resources.OperationResource;
-import org.ServerInteractionDemo.resources.StaticResource;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -46,8 +47,11 @@ public class NetworkServerApplication extends Application<NetworkServerConfigura
            .register("ConfigurationHealthCheck",
                      ConfigurationHealthCheck.builder().serverConfiguration(new Object()).build());
 
+        // EXCEPTION MAPPERS
+        env.jersey().register(new InvalidOperandExceptionMapper(env.metrics()));
+        env.jersey().register(new DataServiceExceptionMapper(env.metrics()));
+
         // RESOURCES
-        env.jersey().register(StaticResource.class);
         env.jersey()
            .register(OperationResource.builder()
                                       .dataServiceClient(this.dataServiceClient.get(configuration.dealServerConfiguration))
