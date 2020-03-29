@@ -18,7 +18,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NetworkServerConfiguration extends Configuration {
-    // TODO: implement service configuration
     Object server;
 
     @JsonProperty("swagger")

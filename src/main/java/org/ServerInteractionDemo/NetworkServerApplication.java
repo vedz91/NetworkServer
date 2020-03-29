@@ -30,7 +30,6 @@ public class NetworkServerApplication extends Application<NetworkServerConfigura
 
     @Override
     public void initialize(final Bootstrap<NetworkServerConfiguration> bootstrap) {
-        // TODO: application initialization
         bootstrap.addBundle(new SwaggerBundle<NetworkServerConfiguration>() {
             @Override
             protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(final NetworkServerConfiguration configuration) {
