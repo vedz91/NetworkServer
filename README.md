@@ -8,13 +8,18 @@ How to start the NetworkServer application
 1. Start application with `java -jar target/NetworkServer-1.0-SNAPSHOT.jar server config.yml`
 1. To check that your application is running enter url `http://localhost:9090/swagger`
 
-Health Check
----
+### Health Check
 
 To see your applications health enter url `http://localhost:9091/healthcheck`
 
+### Test Coverage
+Current coverage is `59%`. 
 
-## To Do
+![Coverage](coverage.png)
+
+Browse `target/jacoco.exe` for more details.
+
+### To Do
 - [x] Create a Static Endpoint
 - [x] Setup a Config File
 - [x] Integrate Swagger
@@ -31,7 +36,7 @@ To see your applications health enter url `http://localhost:9091/healthcheck`
 - [x] Integrate Jacoco Coverage
   
 
-## Nice To Have
+### Nice To Have
 - [ ] Enable PMD
 - [ ] Enable Bugzilla
 
